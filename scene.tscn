@@ -27,7 +27,6 @@
 
 [node name="scene" type="Node2D"]
 script = ExtResource( 1 )
-dimensions = Vector2( 3, 3 )
 
 [node name="tilemap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -37,8 +36,15 @@ format = 1
 [node name="ui" type="CanvasLayer" parent="."]
 
 [node name="margins" type="MarginContainer" parent="ui"]
-margin_right = 40.0
-margin_bottom = 40.0
+modulate = Color( 1, 1, 1, 0.694118 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -154.5
+margin_top = -53.0
+margin_right = 154.5
+margin_bottom = 53.0
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
 
@@ -46,8 +52,8 @@ custom_constants/margin_left = 20
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 309.0
-margin_bottom = 106.0
-custom_constants/separation = 4
+margin_bottom = 112.0
+custom_constants/separation = 6
 
 [node name="region_button_default" type="Button" parent="ui/margins/vbox"]
 margin_right = 289.0
@@ -55,28 +61,33 @@ margin_bottom = 20.0
 text = "update_bitmask_region() - default"
 
 [node name="region_button" type="Button" parent="ui/margins/vbox"]
-margin_top = 24.0
+margin_top = 26.0
 margin_right = 289.0
-margin_bottom = 44.0
+margin_bottom = 46.0
 text = "update_bitmask_region(Vector2(), Vector2())"
 
 [node name="area_button" type="Button" parent="ui/margins/vbox"]
-margin_top = 48.0
+margin_top = 52.0
 margin_right = 289.0
-margin_bottom = 68.0
+margin_bottom = 72.0
 text = "update_bitmask_area(Vector2())"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ui/margins/vbox"]
-margin_top = 72.0
+[node name="center" type="CenterContainer" parent="ui/margins/vbox"]
+margin_top = 78.0
 margin_right = 289.0
-margin_bottom = 86.0
+margin_bottom = 92.0
 
-[node name="millis_label" type="Label" parent="ui/margins/vbox/HBoxContainer"]
+[node name="hbox" type="HBoxContainer" parent="ui/margins/vbox/center"]
+margin_left = 119.0
+margin_right = 170.0
+margin_bottom = 14.0
+
+[node name="millis_label" type="Label" parent="ui/margins/vbox/center/hbox"]
 margin_right = 39.0
 margin_bottom = 14.0
 text = "Millis:"
 
-[node name="millis_value" type="Label" parent="ui/margins/vbox/HBoxContainer"]
+[node name="millis_value" type="Label" parent="ui/margins/vbox/center/hbox"]
 margin_left = 43.0
 margin_right = 51.0
 margin_bottom = 14.0

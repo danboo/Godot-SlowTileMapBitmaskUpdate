@@ -4,7 +4,7 @@ onready var tilemap               = get_node("tilemap")
 onready var region_button_default = get_node("ui/margins/vbox/region_button_default")
 onready var region_button         = get_node("ui/margins/vbox/region_button")
 onready var area_button           = get_node("ui/margins/vbox/area_button")
-onready var millis_value          = get_node("ui/margins/vbox/HBoxContainer/millis_value")
+onready var millis_value          = get_node("ui/margins/vbox/center/hbox/millis_value")
 
 export var dimensions : Vector2 = Vector2(1000, 1000)
 
