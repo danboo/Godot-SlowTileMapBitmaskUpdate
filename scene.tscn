@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scene.gd" type="Script" id=1]
+[ext_resource path="res://tileset.png" type="Texture" id=2]
+
+[sub_resource type="TileSet" id=1]
+
+0/name = "tileset.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 48, 48 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 2
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 438, Vector2( 0, 2 ), 54, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 63, Vector2( 2, 0 ), 216, Vector2( 2, 1 ), 219, Vector2( 2, 2 ), 27 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="scene" type="Node2D"]
+script = ExtResource( 1 )
+dimensions = Vector2( 3, 3 )
+
+[node name="tilemap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="margins" type="MarginContainer" parent="ui"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+
+[node name="vbox" type="VBoxContainer" parent="ui/margins"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 309.0
+margin_bottom = 106.0
+custom_constants/separation = 4
+
+[node name="region_button_default" type="Button" parent="ui/margins/vbox"]
+margin_right = 289.0
+margin_bottom = 20.0
+text = "update_bitmask_region() - default"
+
+[node name="region_button" type="Button" parent="ui/margins/vbox"]
+margin_top = 24.0
+margin_right = 289.0
+margin_bottom = 44.0
+text = "update_bitmask_region(Vector2(), Vector2())"
+
+[node name="area_button" type="Button" parent="ui/margins/vbox"]
+margin_top = 48.0
+margin_right = 289.0
+margin_bottom = 68.0
+text = "update_bitmask_area(Vector2())"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/margins/vbox"]
+margin_top = 72.0
+margin_right = 289.0
+margin_bottom = 86.0
+
+[node name="millis_label" type="Label" parent="ui/margins/vbox/HBoxContainer"]
+margin_right = 39.0
+margin_bottom = 14.0
+text = "Millis:"
+
+[node name="millis_value" type="Label" parent="ui/margins/vbox/HBoxContainer"]
+margin_left = 43.0
+margin_right = 51.0
+margin_bottom = 14.0
+text = "0"
+
